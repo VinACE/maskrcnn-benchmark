@@ -220,7 +220,7 @@ class PolygonInstance(object):
         if isinstance(polygons, (list, tuple)):
             valid_polygons = []
             for p in polygons:
-                p = torch.as_tensor(p, dtype=torch.float32, device=torch.device('cuda'))
+                p = torch.as_tensor(p, dtype=torch.float32, device=torch.device('cpu'))
                 if len(p) >= 6:  # 3 * 2 coordinates
                     valid_polygons.append(p)
             polygons = valid_polygons
