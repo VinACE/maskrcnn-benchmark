@@ -489,6 +489,7 @@ class SegmentationMask(object):
             size: (width, height)
             mode: 'poly', 'mask'. if mode is 'mask', convert mask of any format to binary mask
         """
+        print(f"printing size of img in seg colleciton {size }") # TODO remoove print
         import pdb;pdb.set_trace()
         assert isinstance(size, (list, tuple))
         assert len(size) == 2
