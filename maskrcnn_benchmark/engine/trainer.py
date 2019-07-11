@@ -109,7 +109,7 @@ def do_train(
                     memory=torch.cuda.max_memory_allocated() / 1024.0 / 1024.0,
                 )
             )
-        import pdb;pdb.set_trace()
+        # import pdb;pdb.set_trace()
         # if iteration % checkpoint_period == 0:
         if iteration % 100 == 0:
             logger.info("saving checkpoints")
