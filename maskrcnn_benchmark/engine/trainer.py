@@ -55,7 +55,7 @@ def do_train(
     start_training_time = time.time()
     end = time.time()
     for iteration, (images, targets, _) in enumerate(data_loader, start_iter):
-        import pdb;pdb.set_trace()
+        # import pdb;pdb.set_trace()
         if any(len(target) < 1 for target in targets):
             logger.error(f"Iteration={iteration + 1} || Image Ids used for training {_} || targets Length={[len(target) for target in targets]}" )
             continue
@@ -111,7 +111,7 @@ def do_train(
             )
         import pdb;pdb.set_trace()
         # if iteration % checkpoint_period == 0:
-        if iteration % 10 == 0:
+        if iteration % 100 == 0:
             logger.info("saving checkpoints")
             print("savinggggggg checkpoint")
             checkpointer.save("model_{:07d}".format(iteration), **arguments)
