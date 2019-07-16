@@ -7,7 +7,6 @@ from predictor import COCODemo
 
 import time
 
-
 def main():
     parser = argparse.ArgumentParser(description="PyTorch Object Detection Webcam Demo")
     parser.add_argument(
