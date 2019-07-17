@@ -219,7 +219,7 @@ class PolygonInstance(object):
         """
         if isinstance(polygons, (list, tuple)):
             valid_polygons = []
-            import pdb;pdb.set_trace()
+            # import pdb;pdb.set_trace()
             for p in polygons:
                 p = torch.as_tensor(p, dtype=torch.float32, device=torch.device('cpu'))
                 if len(p) >= 6:  # 3 * 2 coordinates

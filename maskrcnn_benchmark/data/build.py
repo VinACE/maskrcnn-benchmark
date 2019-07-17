@@ -110,7 +110,7 @@ def make_batch_data_sampler(
 
 
 def make_data_loader(cfg, is_train=True, is_distributed=False, start_iter=0):
-    import pdb;pdb.set_trace()
+    # import pdb;pdb.set_trace()
     print("make_data_loader") # TODO remove print
     num_gpus = get_world_size()
     if is_train:
