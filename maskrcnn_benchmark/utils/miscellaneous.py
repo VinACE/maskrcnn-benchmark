@@ -16,8 +16,8 @@ def mkdir(path):
 
 def save_labels(dataset_list, output_dir):
     if is_main_process():
+        import pdb; pdb.set_trace()
         logger = logging.getLogger(__name__)
-        # import pdb; pdb.set_trace()
         ids_to_labels = {}
         for dataset in dataset_list:
             # if hasattr(dataset, 'categories'):    ## TODO  need to check this part as category is not getting identified..
