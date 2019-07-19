@@ -1,6 +1,6 @@
 MODEL:
   META_ARCHITECTURE: "GeneralizedRCNN"
-  WEIGHT: "/home/p_vinsentds/maskrcnn-benchmark/model_0044000.pth"
+  WEIGHT: "catalog://Caffe2Detectron/COCO/35857197/e2e_faster_rcnn_R-50-C4_1x"
   RPN:
     PRE_NMS_TOP_N_TEST: 600
     POST_NMS_TOP_N_TEST: 100
