@@ -33,4 +33,4 @@ DATASETS:
   TRAIN: ("micr_2017_train", "micr_2017_valminusminival")
   TEST: ("micr_2017_val",)
 DATALOADER:
-  SIZE_DIVISIBILITY: 32
+  SIZE_DIVISIBILITY: 16
