@@ -77,6 +77,7 @@ def main():
             continue
         start_time = time.time()
         composite = coco_demo.run_on_opencv_image(img)
+        print(composite)
         print("{}\tinference time: {:.2f}s".format(im_name, time.time() - start_time))
         # cv2.imshow(im_name, composite)
         cv2.imwrite(os.path.join(args.images_dir, 'prediction.jpg'), composite)
