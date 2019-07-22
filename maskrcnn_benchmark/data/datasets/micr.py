@@ -1,5 +1,5 @@
 # location of pycoco tools,
-# /home/p_vinsentds/.conda/envs/qanet/lib/python3.6/site-packages/pycocotools-2.0-py3.6-linux-x86_64.egg/pycocotools
+# /content/.conda/envs/qanet/lib/python3.6/site-packages/pycocotools-2.0-py3.6-linux-x86_64.egg/pycocotools
 #   lists = [self.imgToAnns[str(imgId)] for imgId in imgIds if str(imgId) in self.imgToAnns] in pycoco tools/coco.py file
 import torch
 import torchvision
@@ -38,10 +38,10 @@ def has_valid_annotation(anno):
         return True
     return False
 
-DATA_DIR = "/home/p_vinsentds/maskrcnn-benchmark/datasets/micr/"
+DATA_DIR = "/content/maskrcnn-benchmark/datasets/micr/"
 
 folder_train = "train2017/"
-folder_demo = "/home/p_vinsentds/maskrcnn-benchmark/demo/micr/"
+folder_demo = "/content/maskrcnn-benchmark/demo/micr/"
 folder_val = "val2017/"
 img_path   = DATA_DIR + folder_train
 path_to_json = DATA_DIR + "annotations/"+ "instances_train2017.json"

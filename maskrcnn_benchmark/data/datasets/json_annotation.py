@@ -6,7 +6,7 @@ import os
 from PIL import Image
 import matplotlib.pyplot as plt
 import json
-FOLDER_DATASET = "/home/p_vinsentds/maskrcnn-benchmark/datasets/micr/annotations/"
+FOLDER_DATASET = "/content/maskrcnn-benchmark/datasets/micr/annotations/"
 plt.ion()
 
 class DriveData(Dataset):
