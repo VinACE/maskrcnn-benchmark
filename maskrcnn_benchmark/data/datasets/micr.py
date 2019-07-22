@@ -116,6 +116,7 @@ class MICRDataset(torchvision.datasets.coco.CocoDetection):
         # print("anno!!!!!!!!!")
         # print(anno)
         # boxes = [obj["bbox"] for obj in anno]
+        import pdb; pdb.set_trace()
         boxes = torch.as_tensor(boxes).reshape(-1, 4)  # guard against no boxes
         target = BoxList(boxes, img.size, mode="xywh").convert("xyxy")
         # classes = [obj["category_id"] for obj in anno]
@@ -125,7 +126,7 @@ class MICRDataset(torchvision.datasets.coco.CocoDetection):
         target.add_field("labels", classes)
         # if anno and "segmentation" in anno[0]:
         # masks = [obj["segmentation"] for obj in anno]
-        import pdb; pdb.set_trace()
+        
         print(f"printing target {type(target)}")
         masks = segcollection
         masks = SegmentationMask(masks, list(img.size, mode='poly')
