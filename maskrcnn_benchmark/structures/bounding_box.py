@@ -212,6 +212,7 @@ class BoxList(object):
         return self.bbox.shape[0]
 
     def clip_to_image(self, remove_empty=True):
+        import pdb; pdb.set_trace()
         TO_REMOVE = 1
         self.bbox[:, 0].clamp_(min=0, max=self.size[0] - TO_REMOVE)
         self.bbox[:, 1].clamp_(min=0, max=self.size[1] - TO_REMOVE)
