@@ -69,7 +69,7 @@ class MICRDataset(torchvision.datasets.coco.CocoDetection):
                     # print(f"has valid annotations {anno}")
                     ids.append(img_id)
             self.ids = ids
-            # print(f"has valid ids {self.ids}")
+            print(f"has valid ids {self.ids}") # TODO check for the valid image ids..to cross verify 
 
         self.categories = {cat['id']: cat['name'] for cat in self.coco.cats.values()} # for cat in self.coco.cats.values()
         print(f"self.categories:{self.categories}")
@@ -126,9 +126,9 @@ class MICRDataset(torchvision.datasets.coco.CocoDetection):
         # # if anno and "segmentation" in anno[0]:
         # # masks = [obj["segmentation"] for obj in anno]
                
-        # masks = segcollection
-        # masks = SegmentationMask(masks, list(img.size, mode='poly')
-        # target.add_field("masks", masks)
+        masks = segcollection
+        masks = SegmentationMask(masks, list(img.size, mode='poly')
+        target.add_field("masks", masks)
 
         # if anno and "keypoints" in anno[0]:
         #     keypoints = [obj["keypoints"] for obj in anno]
