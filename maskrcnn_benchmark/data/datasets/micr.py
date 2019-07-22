@@ -120,7 +120,7 @@ class MICRDataset(torchvision.datasets.coco.CocoDetection):
         # boxes = [obj["bbox"] for obj in anno]
 
         import pdb; pdb.set_trace()
-        boxes = torch.as_tensor(boxes).reshape(-1, 4)  # guard against no boxes
+        boxes = torch.as_tensor(boxes).reshape(-1, 4)  # TODO  check for guard against no boxes in box list collections
         target = BoxList(boxes, img.size, mode="xywh").convert("xyxy")
         print(target)
         
