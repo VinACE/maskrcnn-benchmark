@@ -123,12 +123,11 @@ class MICRDataset(torchvision.datasets.coco.CocoDetection):
         classes = [self.json_category_id_to_contiguous_id[c] for c in classes]
         classes = torch.tensor(classes)
         target.add_field("labels", classes)
-        # # if anno and "segmentation" in anno[0]:
-        # # masks = [obj["segmentation"] for obj in anno]
+        # if anno and "segmentation" in anno[0]:
+        # masks = [obj["segmentation"] for obj in anno]
                
         masks = segcollection
-        masks = SegmentationMask(masks, list(img.size, mode='poly')
-        
+        masks = SegmentationMask(masks, list(img.size, mode='poly')        
         target.add_field("masks", masks)
 
         # if anno and "keypoints" in anno[0]:
