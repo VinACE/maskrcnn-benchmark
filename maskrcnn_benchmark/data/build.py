@@ -61,7 +61,7 @@ def build_dataset(dataset_list, transforms, dataset_catalog, is_train=True):
 
 
 def make_data_sampler(dataset, shuffle, distributed):
-    # print(f"daaset !!!!!!!!!!!!!1 {dataset} and shuffle {shuffle}") # TODO
+    print(f"daaset !!!!!!!!!!!!!1 {dataset} and shuffle {shuffle}") # TODO
     if distributed:
         return samplers.DistributedSampler(dataset, shuffle=shuffle)
     if shuffle:

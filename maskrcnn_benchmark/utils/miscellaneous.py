@@ -20,11 +20,11 @@ def save_labels(dataset_list, output_dir):
         logger = logging.getLogger(__name__)
         ids_to_labels = {}
         for dataset in dataset_list:
-            if hasattr(dataset, 'categories'):
+            if hasattr(dataset, 'labels'):
                 ## TODO  need to check this part as category is not getting identified..
                 # if hasattr(dataset, 'labels'): 
                 print("reached dataset.categories place%%%%%%%%%%%%%")
-                ids_to_labels.update(dataset.categories) # dataset.labels
+                ids_to_labels.update(dataset.labels) # dataset.labels
             else:
                 logger.warning("Dataset [{}] has no categories attribute, labels.json file won't be created".format(
                     dataset.__class__.__name__))

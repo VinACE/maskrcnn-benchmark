@@ -5,7 +5,7 @@ import os
 
 
 class DatasetCatalog(object):
-    DATA_DIR = "/content/maskrcnn-benchmark/datasets"
+    DATA_DIR = "/content/maskrcnn-benchmark/datasets/"
     DATASETS = {
 
         "micr_2017_train": {

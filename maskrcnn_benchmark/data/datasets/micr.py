@@ -91,6 +91,8 @@ class MICRDataset(torchvision.datasets.coco.CocoDetection):
 
 
     def get_img_anno(self, idx):
+        import pdb; pdb.set_trace()
+        print("getting in to get_img_anno")
         image_id = str(idx)
         bbcollection = []
         bblabel = []
@@ -115,9 +117,9 @@ class MICRDataset(torchvision.datasets.coco.CocoDetection):
         # filter crowd annotations
         # TODO might be better to add an extra field
         # anno = [obj for obj in anno if obj["iscrowd"] == "0"] #TODO need to check the for type as string
-        # print("anno!!!!!!!!!")
-        # print(anno)
-        # boxes = [obj["bbox"] for obj in anno]
+        print("anno!!!!!!!!!")
+        print(anno)
+        boxes = [obj["bbox"] for obj in anno]
 
         import pdb; pdb.set_trace()
         boxes = torch.as_tensor(boxes).reshape(-1, 4)  # TODO  check for guard against no boxes in box list collections
