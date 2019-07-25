@@ -379,12 +379,15 @@ class PolygonList(object):
                 assert isinstance(polygons[[0][0]], (list, tuple)), str(
                     type(polygons[[0][0]])
                 )
+                printing("if part!!!!!!!!!!!")
             else:
+                printing("else part$$$$$$$$$4")
                 assert isinstance(polygons[0][0], PolygonInstance), str(
                     type(polygons[0][0])
                 ) # added one more dim [0][0] initial was [0]
 
         elif isinstance(polygons, PolygonList):
+            printing("else part$***********5")
             size = polygons.size
             polygons = polygons.polygons
 
