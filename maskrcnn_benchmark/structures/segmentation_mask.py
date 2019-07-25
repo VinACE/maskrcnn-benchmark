@@ -406,8 +406,10 @@ class PolygonList(object):
             print(p)
             p = PolygonInstance(p, size)
             if len(p) > 0:
-                
+                print('appending polygons")
                 self.polygons.append(p)
+            print("type of polygons")
+            print(type(polygons))
 
         self.size = tuple(size)
 
