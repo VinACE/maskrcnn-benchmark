@@ -400,6 +400,7 @@ class PolygonList(object):
         assert isinstance(size, (list, tuple)), str(type(size))
 
         self.polygons = []
+        print(type(polygons))
         for p in polygons:
             print("polygons in for loop p is : ++++++++")
             print(p)
