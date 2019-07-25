@@ -371,7 +371,7 @@ class PolygonList(object):
 
         """
         if isinstance(polygons, (list, tuple)):
-            import pdb;pdb.set_trace()
+            # import pdb;pdb.set_trace()
             if len(polygons) == 0:
                 polygons = [[[]]]
             if isinstance(polygons[0], (list, tuple)):
@@ -492,7 +492,7 @@ class SegmentationMask(object):
             size: (width, height)
             mode: 'poly', 'mask'. if mode is 'mask', convert mask of any format to binary mask
         """
-
+        import pdb; pdb.set_trace()
         assert isinstance(size, (list, tuple))
         assert len(size) == 2
         if isinstance(size[0], torch.Tensor):
