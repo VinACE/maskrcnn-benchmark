@@ -223,7 +223,7 @@ class PolygonInstance(object):
             for p in polygons:
                 print("printing Polygon......")
                 # print(p)
-                p = torch.as_tensor(p, dtype=torch.float32, device = torch.device( cuda ))
+                p = torch.as_tensor(p, dtype=torch.float32, device = torch.device('cuda'))
                 print("p.shape ################3")
                 print(p.size())
                 print(p)
