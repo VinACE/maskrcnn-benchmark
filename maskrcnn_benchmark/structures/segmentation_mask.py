@@ -219,13 +219,8 @@ class PolygonInstance(object):
         """
         if isinstance(polygons, (list, tuple)):
             valid_polygons = []
-            # import pdb;pdb.set_trace()
             for p in polygons:
-                # print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^$$$$$$$$$$")
-                # print(p)
-                # print("printing len of p")
-                # print(len(p))
-                p = torch.as_tensor(p, dtype=torch.float32) # , device=torch.device('cpu')
+                p = torch.as_tensor(p, dtype=torch.float32)
                 if len(p) >= 6:  # 3 * 2 coordinates
                     valid_polygons.append(p)
             polygons = valid_polygons
@@ -373,18 +368,13 @@ class PolygonList(object):
             size: absolute image size
 
         """
-        print("polygon checks..........$$$$$$$%%%%%%%%%%%")
-        print(f" printing polygon list {polygons } type as : {type(polygons)}and size as  {size}")
         if isinstance(polygons, (list, tuple)):
             if len(polygons) == 0:
                 polygons = [[[]]]
             if isinstance(polygons[0], (list, tuple)):
                 assert isinstance(polygons[0][0], (list, tuple)), str(
-                    type(polygons[0])
+                    type(polygons[0][0])
                 )
-                
-                # changed assert isinstance(polygons[0][0] assert isinstance(polygons[0]
-                # type(polygons[0][0])
             else:
                 assert isinstance(polygons[0], PolygonInstance), str(
                     type(polygons[0])
@@ -499,7 +489,7 @@ class SegmentationMask(object):
             size: (width, height)
             mode: 'poly', 'mask'. if mode is 'mask', convert mask of any format to binary mask
         """
-        print(f"printing size of img in seg colleciton {size }") # TODO remoove print
+
         assert isinstance(size, (list, tuple))
         assert len(size) == 2
         if isinstance(size[0], torch.Tensor):
