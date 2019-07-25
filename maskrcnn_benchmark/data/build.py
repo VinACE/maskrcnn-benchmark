@@ -128,7 +128,7 @@ def make_data_loader(cfg, is_train=True, is_distributed=False, start_iter=0):
             images_per_batch, num_gpus)
         images_per_gpu = images_per_batch // num_gpus
         shuffle = False if not is_distributed else True
-        shuffle = False
+        # shuffle = False
         num_iters = None
         start_iter = 0
 
@@ -159,14 +159,16 @@ def make_data_loader(cfg, is_train=True, is_distributed=False, start_iter=0):
 
     # If bbox aug is enabled in testing, simply set transforms to None and we will apply transforms later
     transforms = None if not is_train and cfg.TEST.BBOX_AUG.ENABLED else build_transforms(cfg, is_train)
-    datasets = build_dataset(dataset_list, transforms, DatasetCatalog, is_train)
     import pdb;pdb.set_trace()
+    datasets = build_dataset(dataset_list, transforms, DatasetCatalog, is_train)
+    
     if is_train:
         # save category_id to label name mapping
         save_labels(datasets, cfg.OUTPUT_DIR) ## TODO need to check this part as its giving warning.
 
     data_loaders = []
     for dataset in datasets:
+        import pdb;pdb.set_trace()
         #sampler = make_data_sampler(dataset, shuffle, is_distributed)
         sampler = make_data_sampler(dataset, shuffle, is_distributed)
         batch_sampler = make_batch_data_sampler(
