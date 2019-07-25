@@ -401,6 +401,8 @@ class PolygonList(object):
 
         self.polygons = []
         for p in polygons:
+            print("polygons in for loop p is : ++++++++")
+            print(p)
             p = PolygonInstance(p, size)
             if len(p) > 0:
                 self.polygons.append(p)
