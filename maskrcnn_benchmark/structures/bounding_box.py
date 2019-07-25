@@ -238,7 +238,7 @@ class BoxList(object):
 
     def copy_with_fields(self, fields, skip_missing=False):
         bbox = BoxList(self.bbox, self.size, self.mode)
-        import pdb;pdb.set_trace()
+        # import pdb;pdb.set_trace()
         if not isinstance(fields, (list, tuple)):
             fields = [fields]
         for field in fields:
