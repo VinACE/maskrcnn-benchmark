@@ -221,6 +221,7 @@ class PolygonInstance(object):
             valid_polygons = []
             # import pdb;pdb.set_trace()
             for p in polygons:
+                print(p)
                 p = torch.as_tensor(p, dtype=torch.float32) # , device=torch.device('cpu')
                 print("printing len of p")
                 print(len(p))
