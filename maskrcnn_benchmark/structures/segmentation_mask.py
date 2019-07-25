@@ -387,7 +387,7 @@ class PolygonList(object):
                 ) # added one more dim [0][0] initial was [0]
 
         elif isinstance(polygons, PolygonList):
-            print"else part$***********5")
+            print("else part$***********5")
             size = polygons.size
             polygons = polygons.polygons
 
