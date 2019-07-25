@@ -223,13 +223,13 @@ class PolygonInstance(object):
             for p in polygons:
                 print("printing Polygon......")
                 # print(p)
-                p = torch.as_tensor(p, dtype=torch.float32)
+                p = torch.as_tensor([p], dtype=torch.float32)
                 print(len(p))
-                try:
-                    if len(p) >= 6:  # 3 * 2 coordinates
-                        valid_polygons.append(p)
-                except:
-                    pass
+                # try:
+                if len(p) >= 6:  # 3 * 2 coordinates
+                    valid_polygons.append(p)
+                # except:
+                #     pass
             polygons = valid_polygons
 
         elif isinstance(polygons, PolygonInstance):
