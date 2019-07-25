@@ -220,6 +220,8 @@ class PolygonInstance(object):
         if isinstance(polygons, (list, tuple)):
             valid_polygons = []
             for p in polygons:
+                print("printing Polygon......")
+                print(p)
                 p = torch.as_tensor(p, dtype=torch.float32)
                 if len(p) >= 6:  # 3 * 2 coordinates
                     valid_polygons.append(p)
