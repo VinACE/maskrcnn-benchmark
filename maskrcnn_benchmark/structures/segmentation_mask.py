@@ -380,9 +380,9 @@ class PolygonList(object):
                     type(polygons[[0][0]])
                 )
             else:
-                assert isinstance(polygons[0], PolygonInstance), str(
-                    type(polygons[0])
-                )
+                assert isinstance(polygons[0][0], PolygonInstance), str(
+                    type(polygons[0][0])
+                ) # added one more dim [0][0] initial was [0]
 
         elif isinstance(polygons, PolygonList):
             size = polygons.size
