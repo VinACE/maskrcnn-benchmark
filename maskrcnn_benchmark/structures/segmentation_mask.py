@@ -227,12 +227,11 @@ class PolygonInstance(object):
                 print("p.shape ################3")
                 print(p.size())
                 print(p)
-                # try:
-
-                if int(p.size()) >= 6:  # 3 * 2 coordinates
-                    valid_polygons.append(p)
-                # except:
-                #     pass
+                try:
+                    if len(p) >= 6:  # 3 * 2 coordinates
+                        valid_polygons.append(p)
+                except:
+                    pass
             polygons = valid_polygons
 
         elif isinstance(polygons, PolygonInstance):
