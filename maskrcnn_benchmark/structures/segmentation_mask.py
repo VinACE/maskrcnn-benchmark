@@ -226,8 +226,8 @@ class PolygonInstance(object):
                 p = torch.as_tensor(p, dtype=torch.float32)
                 # print(len(p[0]))
                 # try:
-                if len(p.shape()) >= 6:  # 3 * 2 coordinates
-                    valid_polygons.append(p[0])
+                if p.shape[0] >= 6:  # 3 * 2 coordinates
+                    valid_polygons.append(p)
                 # except:
                 #     pass
             polygons = valid_polygons
