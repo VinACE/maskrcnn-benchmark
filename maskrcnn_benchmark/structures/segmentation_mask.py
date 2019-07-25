@@ -371,11 +371,12 @@ class PolygonList(object):
 
         """
         if isinstance(polygons, (list, tuple)):
+            import pdb;pdb.set_trace()
             if len(polygons) == 0:
                 polygons = [[[]]]
             if isinstance(polygons[0], (list, tuple)):
                 assert isinstance(polygons[[0][0]], (list, tuple)), str(
-                    type(polygons[0][0])
+                    type(polygons[[0][0]])
                 )
             else:
                 assert isinstance(polygons[0], PolygonInstance), str(
