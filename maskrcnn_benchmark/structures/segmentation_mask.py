@@ -408,7 +408,8 @@ class PolygonList(object):
             p = PolygonInstance(p, size)
             if len(p) > 0:
 
-                self.polygons.append(p)
+                # self.polygons.append(p)
+                self.polygons.append(polygons[p])
 
         self.size = tuple(size)
 
