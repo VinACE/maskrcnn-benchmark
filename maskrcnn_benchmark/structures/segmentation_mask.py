@@ -228,7 +228,7 @@ class PolygonInstance(object):
                 print(p.size())
                 # try:
 
-                if p.shape[0] >= 6:  # 3 * 2 coordinates
+                if p.size() >= 6:  # 3 * 2 coordinates
                     valid_polygons.append(p)
                 # except:
                 #     pass
