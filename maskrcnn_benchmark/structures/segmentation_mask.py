@@ -402,7 +402,7 @@ class PolygonList(object):
         self.polygons = []
         print(type(polygons))
         # import pdb;pdb.set_trace()
-        for p in len(polygons):
+        for p in range(polygons):
             print("polygons in for loop p is : ++++++++")
             print(p)
             p = PolygonInstance(p, size)
