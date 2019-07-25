@@ -221,7 +221,7 @@ class PolygonInstance(object):
             valid_polygons = []
             import pdb;pdb.set_trace()
             for p in polygons:
-                p = torch.as_tensor(p, dtype=torch.float32, device=torch.device('cpu'))
+                p = torch.as_tensor(p, dtype=torch.float32) # , device=torch.device('cpu')
                 print(f' print len of polygon{len(p)}')
                 if len(p) >= 6:  # 3 * 2 coordinates
                     valid_polygons.append(p)
