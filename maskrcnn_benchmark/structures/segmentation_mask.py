@@ -222,7 +222,7 @@ class PolygonInstance(object):
             valid_polygons = []
             for p in polygons:
                 print("printing Polygon......")
-                print(p)
+                # print(p)
                 p = torch.as_tensor(p, dtype=torch.float32)
                 if len(p) >= 6:  # 3 * 2 coordinates
                     valid_polygons.append(p)
@@ -401,15 +401,13 @@ class PolygonList(object):
 
         self.polygons = []
         print(type(polygons))
-        # import pdb;pdb.set_trace()
-        for p in range(len(polygons)):
+        for p in polygons:
             print("polygons in for loop p is : ++++++++")
             print(p)
             p = PolygonInstance(p, size)
             if len(p) > 0:
-
-                # self.polygons.append(p)
-                self.polygons.append(polygons[p])
+                
+                self.polygons.append(p)
 
         self.size = tuple(size)
 
