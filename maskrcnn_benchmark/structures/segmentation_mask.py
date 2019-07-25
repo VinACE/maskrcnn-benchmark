@@ -372,7 +372,7 @@ class PolygonList(object):
             if len(polygons) == 0:
                 polygons = [[[]]]
             if isinstance(polygons[0], (list, tuple)):
-                assert isinstance(polygons[0][0], (list, tuple)), str(
+                assert isinstance(polygons[0][0], (list, tuple)), int(
                     type(polygons[0][0])
                 )
             else:
