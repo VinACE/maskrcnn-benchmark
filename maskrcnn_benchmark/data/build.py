@@ -15,7 +15,7 @@ from .collate_batch import BatchCollator, BBoxAugCollator
 from .transforms import build_transforms
 
 
-def build_dataset(dataset_list, transforms=False, dataset_catalog, is_train=True):
+def build_dataset(dataset_list, None, dataset_catalog, is_train=True): # transforms was replace by None
     """
     Arguments:
         dataset_list (list[str]): Contains the names of the datasets, i.e.,
