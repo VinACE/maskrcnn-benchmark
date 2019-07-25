@@ -1,6 +1,7 @@
 import cv2
 import copy
 import torch
+
 import numpy as np
 from maskrcnn_benchmark.layers.misc import interpolate
 from maskrcnn_benchmark.utils import cv2_util
@@ -223,6 +224,7 @@ class PolygonInstance(object):
             for p in polygons:
                 print("printing Polygon......")
                 # print(p)
+                torch.multiprocessing.set_start_method("spawn")
                 p = torch.as_tensor(p, dtype=torch.float32, device = torch.device('cuda'))
                 print("p.shape ################3")
                 print(p.size())
