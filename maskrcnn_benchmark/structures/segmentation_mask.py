@@ -369,7 +369,9 @@ class PolygonList(object):
             size: absolute image size
 
         """
-        # print(f" printing polygon list {polygons } type as : {type(polygons)}and size as  {size}") # TODO to remove the print function
+        print(f" printing polygon list {polygons } type as : {type(polygons)}and size as  {size}")
+        if isinstance(polygons, (list, tuple)):
+            if len(polygons) == 0:
                 polygons = [[[]]]
             if isinstance(polygons[0], (list, tuple)):
                 assert isinstance(polygons[0], (list, tuple)), str(
