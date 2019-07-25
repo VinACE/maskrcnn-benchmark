@@ -375,7 +375,7 @@ class PolygonList(object):
             # import pdb;pdb.set_trace()
             if len(polygons) == 0:
                 polygons = [[[]]]
-            if isinstance(polygons[0][0], (list, tuple)): # polygons[0]
+            if isinstance(polygons[0], (list, tuple)): # polygons[0]
                 assert isinstance(polygons[[0][0]], (list, tuple)), str(
                     type(polygons[[0][0]])
                 )
