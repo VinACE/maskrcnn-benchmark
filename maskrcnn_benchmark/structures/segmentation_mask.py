@@ -493,7 +493,7 @@ class SegmentationMask(object):
             mode: 'poly', 'mask'. if mode is 'mask', convert mask of any format to binary mask
         """
         import pdb; pdb.set_trace()
-        print(f"printing size {size} ")
+        print("printing size %s " % (size))
         assert isinstance(size, (list, tuple))
         assert len(size) == 2
         if isinstance(size[0], torch.Tensor):
