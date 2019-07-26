@@ -34,7 +34,7 @@ def to_image_list(tensors, size_divisible=0):
     the Tensors with zeros so that they have the same
     shape
     """
-    import pdb;pdb.set_trace()
+    # import pdb;pdb.set_trace()
     if isinstance(tensors, torch.Tensor) and size_divisible > 0:
         tensors = [tensors]
 
@@ -48,6 +48,7 @@ def to_image_list(tensors, size_divisible=0):
         image_sizes = [tensor.shape[-2:] for tensor in tensors]
         return ImageList(tensors, image_sizes)
     elif isinstance(tensors, (tuple, list)):
+        print(tensors)
         max_size = tuple(max(s) for s in zip(*[img.shape for img in tensors]))
 
         # TODO Ideally, just remove this and let me model handle arbitrary

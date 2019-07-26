@@ -16,7 +16,7 @@ def mkdir(path):
 
 def save_labels(dataset_list, output_dir):
     if is_main_process():
-        import pdb; pdb.set_trace()
+        # import pdb; pdb.set_trace()
         logger = logging.getLogger(__name__)
         ids_to_labels = {}
         for dataset in dataset_list:
