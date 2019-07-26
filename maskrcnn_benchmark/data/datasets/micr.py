@@ -54,6 +54,7 @@ class MICRDataset(torchvision.datasets.coco.CocoDetection):
         super().__init__(self, ann_file,root)
         # super(MICRDataset, self).__init__(root,ann_file)
         # sort indices for reproducible results
+        import pdb;pdb.set_trace()
         from pycocotools.coco import COCO
         self.coco = COCO(ann_file)
         self.ids = sorted(self.ids)
@@ -69,6 +70,7 @@ class MICRDataset(torchvision.datasets.coco.CocoDetection):
                     # print(f"has valid annotations {anno}")
                     ids.append(img_id)
             self.ids = ids
+            import pdb;pdb.set_trace()
             print(f"has valid ids {self.ids}") # TODO check for the valid image ids..to cross verify 
 
         self.categories = {cat['id']: cat['name'] for cat in self.coco.cats.values()} # for cat in self.coco.cats.values()

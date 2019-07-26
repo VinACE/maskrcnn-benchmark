@@ -31,21 +31,22 @@ def build_dataset(dataset_list, transforms, dataset_catalog, is_train=True):
         )
     datasets = []
     for dataset_name in dataset_list:
+        import pdb;pdb.set_trace()
         data = dataset_catalog.get(dataset_name)
         factory = getattr(D, data["factory"])
-        args = data["args"]
+        a = data["args"]
         # for COCODataset, we want to remove images without annotations
         # during training
         if data["factory"] == "COCODataset":
-            args["remove_images_without_annotations"] = is_train
+            a["remove_images_without_annotations"] = is_train
         if data["factory"] == "MICRDataset":
             print("reached MICRDATASET !!!!!!!!!")
-            args["remove_images_without_annotations"] = is_train
+            a["remove_images_without_annotations"] = is_train
         if data["factory"] == "PascalVOCDataset":
-            args["use_difficult"] = not is_train
-        args["transforms"] = transforms
+            a["use_difficult"] = not is_train
+        a["transforms"] = transforms
         # make dataset from factory
-        dataset = factory(**args)
+        dataset = factory(**a)
         datasets.append(dataset)
 
     # for testing, return a list of datasets
@@ -61,6 +62,7 @@ def build_dataset(dataset_list, transforms, dataset_catalog, is_train=True):
 
 
 def make_data_sampler(dataset, shuffle, distributed):
+    import pdb;pdb.set_trace()
     print(f"daaset !!!!!!!!!!!!!1 {dataset} and shuffle {shuffle}") # TODO
     if distributed:
         return samplers.DistributedSampler(dataset, shuffle=shuffle)
@@ -128,7 +130,7 @@ def make_data_loader(cfg, is_train=True, is_distributed=False, start_iter=0):
             images_per_batch, num_gpus)
         images_per_gpu = images_per_batch // num_gpus
         shuffle = False if not is_distributed else True
-        # shuffle = False
+        shuffle = False
         num_iters = None
         start_iter = 0
 
@@ -160,7 +162,7 @@ def make_data_loader(cfg, is_train=True, is_distributed=False, start_iter=0):
     # If bbox aug is enabled in testing, simply set transforms to None and we will apply transforms later
     transforms = None if not is_train and cfg.TEST.BBOX_AUG.ENABLED else build_transforms(cfg, is_train)
     import pdb;pdb.set_trace()
-    datasets = build_dataset(dataset_list, transforms, DatasetCatalog, is_train)
+    datasets = build_dataset(dataset_list, None, DatasetCatalog, is_train)
     
     if is_train:
         # save category_id to label name mapping
