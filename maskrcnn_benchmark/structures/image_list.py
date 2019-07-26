@@ -36,7 +36,7 @@ def to_image_list(tensors, size_divisible=0):
     """
     # import pdb;pdb.set_trace()
     if isinstance(tensors, torch.Tensor) and size_divisible > 0:
-        print(" Iam in instance of tensor******************$$$$$$$$$") #  TODO remove print
+        # print(" Iam in instance of tensor******************$$$$$$$$$") #  TODO remove print
         tensors = [tensors]
 
     if isinstance(tensors, ImageList):
@@ -51,7 +51,8 @@ def to_image_list(tensors, size_divisible=0):
     elif isinstance(tensors, (tuple, list)):
         print(" Iam in instance of tensor******************$$$$$$$$$") 
         print(tensors)
-        max_size = tuple(max(s) for s in zip(*[img.shape for img in tensors]))
+        # max_size = tuple(max(s) for s in zip(*[img.shape for img in tensors]))
+        max_size = tuple(max(s) for s in zip(*[img.size() for img in tensors]))
 
         # TODO Ideally, just remove this and let me model handle arbitrary
         # input sizs
