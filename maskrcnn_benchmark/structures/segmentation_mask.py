@@ -222,14 +222,14 @@ class PolygonInstance(object):
         if isinstance(polygons, (list, tuple)):
             valid_polygons = []
             
-            for p in polygons:
-                print(polygons)
-                print("printing Polygon......")
-                # torch.multiprocessing.set_start_method("spawn")
-                p = torch.tensor(p, dtype=torch.float32)
-                print("p.shape ################32")
-                print('!!!!!!!!!!')
-                print(p)
+            # for p in polygons:
+            print(polygons)
+            print("printing Polygon......")
+            # torch.multiprocessing.set_start_method("spawn")
+            p = torch.tensor(p, dtype=torch.float32)
+            print("p.shape ################32")
+            print('!!!!!!!!!!')
+            print(p)
             
             try:
                 if len(p) >= 6:  # 3 * 2 coordinates
@@ -382,20 +382,20 @@ class PolygonList(object):
             size: absolute image size
 
         """
-        polygons = [polygons]
+        # polygons = [polygons]
         if isinstance(polygons, (list, tuple)):
             # import pdb;pdb.set_trace()
             if len(polygons) == 0:
-                polygons = [[[]]]
-            if isinstance(polygons[0], (list, tuple)): # polygons[0]
-                assert isinstance(polygons[[0][0]], (list, tuple)), str(
-                    type(polygons[[0][0]])
+                polygons = [[]]
+            if isinstance(polygons, (list, tuple)): # polygons[0]
+                assert isinstance(polygons[[0]], (list, tuple)), str(
+                    type(polygons[[0]])
                 )
                 print("if part!!!!!!!!!!!")
             else:
                 print("else part$$$$$$$$$4")
-                assert isinstance(polygons[0][0], PolygonInstance), str(
-                    type(polygons[0][0])
+                assert isinstance(polygons[0], PolygonInstance), str(
+                    type(polygons[0])
                 ) # added one more dim [0][0] initial was [0]
 
         elif isinstance(polygons, PolygonList):
