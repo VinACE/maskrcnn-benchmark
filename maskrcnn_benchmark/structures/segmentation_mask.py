@@ -382,7 +382,7 @@ class PolygonList(object):
             size: absolute image size
 
         """
-        polygons = [polygons]
+        # polygons = [polygons]
         if isinstance(polygons, (list, tuple)):
             # import pdb;pdb.set_trace()
             if len(polygons) == 0:
