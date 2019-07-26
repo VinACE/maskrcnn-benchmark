@@ -222,20 +222,20 @@ class PolygonInstance(object):
         if isinstance(polygons, (list, tuple)):
             valid_polygons = []
             
-            for p in polygons:
-                print(polygons)
-                print("printing Polygon......")
-                print(p)
-                # torch.multiprocessing.set_start_method("spawn")
-                p = torch.tensor(p, dtype=torch.float32)
-                print("p.shape ################32")
-                print('!!!!!!!!!!')
-                print(p)
-                try:
-                    if len(p) >= 6:  # 3 * 2 coordinates
-                        valid_polygons.append(p)
-                except:
-                    pass
+            print(polygons)
+            print("printing Polygon......")
+            # torch.multiprocessing.set_start_method("spawn")
+            p = torch.tensor(p, dtype=torch.float32)
+            print("p.shape ################32")
+            print('!!!!!!!!!!')
+            print(p)
+            
+            try:
+                if len(p) >= 6:  # 3 * 2 coordinates
+                    valid_polygons.append(p)
+            except:
+                pass
+            
             polygons = valid_polygons
 
         elif isinstance(polygons, PolygonInstance):
