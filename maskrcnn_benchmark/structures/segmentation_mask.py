@@ -394,8 +394,8 @@ class PolygonList(object):
                 print("if part!!!!!!!!!!!")
             else:
                 print("else part$$$$$$$$$4")
-                assert isinstance(polygons[0][0], PolygonInstance), str(
-                    type(polygons[0][0])
+                assert isinstance(polygons[[0][0]], PolygonInstance), str(
+                    type(polygons[[0][0]])
                 ) # added one more dim [0][0] initial was [0]
 
         elif isinstance(polygons, PolygonList):
