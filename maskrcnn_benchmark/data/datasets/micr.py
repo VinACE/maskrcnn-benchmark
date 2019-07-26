@@ -100,7 +100,7 @@ class MICRDataset(torchvision.datasets.coco.CocoDetection):
             if value['image_id'] == image_id:
                 bbcollection.append(value['bbox'])
                 bblabel.append(value['category_id'])
-                segcollection.append(value[['segmentation']])
+                segcollection.append([value['segmentation']])
         return (bbcollection,bblabel,segcollection)
 
 
