@@ -51,6 +51,7 @@ def do_train(
     meters = MetricLogger(delimiter="  ")
     max_iter = len(data_loader)
     start_iter = arguments["iteration"]
+    import pdb;pdb.set_trace()
     model.train()
     start_training_time = time.time()
     end = time.time()
