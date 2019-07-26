@@ -221,6 +221,7 @@ class PolygonInstance(object):
         # import pdb; pdb.set_trace()
         if isinstance(polygons, (list, tuple)):
             valid_polygons = []
+            print(polygons)
             for p in polygons:
                 print("printing Polygon......")
                 print(p)
