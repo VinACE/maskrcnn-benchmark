@@ -388,8 +388,8 @@ class PolygonList(object):
             if len(polygons) == 0:
                 polygons = [[]]
             if isinstance(polygons, (list, tuple)): # polygons[0]
-                assert isinstance(polygons[[0]], (list, tuple)), str(
-                    type(polygons[[0]])
+                assert isinstance(polygons[0], (list, tuple)), str(
+                    type(polygons[0])
                 )
                 print("if part!!!!!!!!!!!")
             else:
