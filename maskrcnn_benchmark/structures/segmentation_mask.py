@@ -223,11 +223,11 @@ class PolygonInstance(object):
             valid_polygons = []
             for p in polygons:
                 print("printing Polygon......")
-                # print(p)
+                print(len(p))
                 # torch.multiprocessing.set_start_method("spawn")
-                p = torch.as_tensor(p, dtype=torch.float32, device = torch.device('cuda'))
+                p = torch.tensor(p, dtype=torch.float32)
                 print("p.shape ################3")
-                print(p.size())
+                print(len(p))
                 print(p)
                 try:
                     if len(p) >= 6:  # 3 * 2 coordinates
