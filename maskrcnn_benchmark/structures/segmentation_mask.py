@@ -225,7 +225,7 @@ class PolygonInstance(object):
             print(polygons)
             print("printing Polygon......")
             # torch.multiprocessing.set_start_method("spawn")
-            p = torch.tensor(p, dtype=torch.float32)
+            p = torch.tensor(polygons, dtype=torch.float32)
             print("p.shape ################32")
             print('!!!!!!!!!!')
             print(p)
