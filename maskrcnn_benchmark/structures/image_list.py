@@ -49,6 +49,7 @@ def to_image_list(tensors, size_divisible=0):
         image_sizes = [tensor.shape[-2:] for tensor in tensors]
         return ImageList(tensors, image_sizes)
     elif isinstance(tensors, (tuple, list)):
+        print(" Iam in instance of tensor******************$$$$$$$$$") 
         print(tensors)
         max_size = tuple(max(s) for s in zip(*[img.shape for img in tensors]))
 
