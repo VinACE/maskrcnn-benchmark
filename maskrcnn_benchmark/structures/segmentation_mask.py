@@ -218,7 +218,7 @@ class PolygonInstance(object):
                 The first level refers to all the polygons that compose the
                 object, and the second level to the polygon coordinates.
         """
-        # import pdb; pdb.set_trace()
+        import pdb; pdb.set_trace()
         if isinstance(polygons, (list, tuple)):
             valid_polygons = []
             for p in polygons:
