@@ -1,6 +1,7 @@
 import cv2
 import copy
 import torch
+
 import numpy as np
 from maskrcnn_benchmark.layers.misc import interpolate
 from maskrcnn_benchmark.utils import cv2_util
@@ -217,13 +218,22 @@ class PolygonInstance(object):
                 The first level refers to all the polygons that compose the
                 object, and the second level to the polygon coordinates.
         """
+        # import pdb; pdb.set_trace()
         if isinstance(polygons, (list, tuple)):
             valid_polygons = []
-            # import pdb;pdb.set_trace()
             for p in polygons:
-                p = torch.as_tensor(p, dtype=torch.float32, device=torch.device('cpu'))
-                if len(p) >= 6:  # 3 * 2 coordinates
-                    valid_polygons.append(p)
+                print("printing Polygon......")
+                # print(p)
+                # torch.multiprocessing.set_start_method("spawn")
+                p = torch.as_tensor(p, dtype=torch.float32, device = torch.device('cuda'))
+                print("p.shape ################3")
+                print(p.size())
+                print(p)
+                try:
+                    if len(p) >= 6:  # 3 * 2 coordinates
+                        valid_polygons.append(p)
+                except:
+                    pass
             polygons = valid_polygons
 
         elif isinstance(polygons, PolygonInstance):
@@ -369,21 +379,23 @@ class PolygonList(object):
             size: absolute image size
 
         """
-        print(f" printing polygon list {polygons } type as : {type(polygons)}and size as  {size}")
         if isinstance(polygons, (list, tuple)):
+            # import pdb;pdb.set_trace()
             if len(polygons) == 0:
                 polygons = [[[]]]
-            if isinstance(polygons[0], (list, tuple)):
-                assert isinstance(polygons[0], (list, tuple)), str(
-                    type(polygons[0][0])
+            if isinstance(polygons[0], (list, tuple)): # polygons[0]
+                assert isinstance(polygons[[0][0]], (list, tuple)), str(
+                    type(polygons[[0][0]])
                 )
-                # changed assert isinstance(polygons[0][0] assert isinstance(polygons[0]
+                print("if part!!!!!!!!!!!")
             else:
-                assert isinstance(polygons[0], PolygonInstance), str(
-                    type(polygons[0])
-                )
+                print("else part$$$$$$$$$4")
+                assert isinstance(polygons[0][0], PolygonInstance), str(
+                    type(polygons[0][0])
+                ) # added one more dim [0][0] initial was [0]
 
         elif isinstance(polygons, PolygonList):
+            print("else part$***********5")
             size = polygons.size
             polygons = polygons.polygons
 
@@ -396,10 +408,16 @@ class PolygonList(object):
         assert isinstance(size, (list, tuple)), str(type(size))
 
         self.polygons = []
+        print(type(polygons))
         for p in polygons:
+            print("polygons in for loop p is : ++++++++")
+            print(p)
             p = PolygonInstance(p, size)
             if len(p) > 0:
+                print("appending polygons")
                 self.polygons.append(p)
+            print("type of polygons")
+            print(type(polygons))
 
         self.size = tuple(size)
 
@@ -492,7 +510,10 @@ class SegmentationMask(object):
             size: (width, height)
             mode: 'poly', 'mask'. if mode is 'mask', convert mask of any format to binary mask
         """
-        print(f"printing size of img in seg colleciton {size }") # TODO remoove print
+        # import pdb; pdb.set_trace()
+        print("printing size $$$$$$$$$$$$$$ " )
+        print(type(size))
+        print(size[0], size[1])
         assert isinstance(size, (list, tuple))
         assert len(size) == 2
         if isinstance(size[0], torch.Tensor):
