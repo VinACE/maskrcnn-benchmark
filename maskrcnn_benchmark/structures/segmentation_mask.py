@@ -1,7 +1,6 @@
 import cv2
 import copy
 import torch
-
 import numpy as np
 from maskrcnn_benchmark.layers.misc import interpolate
 from maskrcnn_benchmark.utils import cv2_util
@@ -16,15 +15,12 @@ FLIP_TOP_BOTTOM = 1
 Segmentations come in either:
 1) Binary masks
 2) Polygons
-
 Binary masks can be represented in a contiguous array
 and operations can be carried out more efficiently,
 therefore BinaryMaskList handles them together.
-
 Polygons are handled separately for each instance,
 by PolygonInstance and instances are handled by
 PolygonList.
-
 SegmentationList is supposed to represent both,
 therefore it wraps the functions of BinaryMaskList
 and PolygonList to make it transparent.
@@ -44,7 +40,6 @@ class BinaryMaskList(object):
                     or RLE (Run Length Encoding) - interpreted as list of dicts,
                     or BinaryMaskList.
                 size: absolute image size, width first
-
             After initialization, a hard copy will be made, to leave the
             initializing source data intact.
         """
@@ -218,25 +213,12 @@ class PolygonInstance(object):
                 The first level refers to all the polygons that compose the
                 object, and the second level to the polygon coordinates.
         """
-        # import pdb; pdb.set_trace()
         if isinstance(polygons, (list, tuple)):
             valid_polygons = []
-            
             for p in polygons:
-                print(polygons)
-                print("printing Polygon......")
-                # torch.multiprocessing.set_start_method("spawn")
-                p = torch.tensor(p, dtype=torch.float32)
-                print("p.shape ################32")
-                print('!!!!!!!!!!')
-                print(p)
-            
-            try:
+                p = torch.as_tensor(p, dtype=torch.float32)
                 if len(p) >= 6:  # 3 * 2 coordinates
                     valid_polygons.append(p)
-            except:
-                pass
-            
             polygons = valid_polygons
 
         elif isinstance(polygons, PolygonInstance):
@@ -370,36 +352,25 @@ class PolygonList(object):
                 level of the list correspond to individual instances,
                 the second level to all the polygons that compose the
                 object, and the third level to the polygon coordinates.
-
                 OR
-
                 a list of PolygonInstances.
-
                 OR
-
                 a PolygonList
-
             size: absolute image size
-
         """
-        # polygons = [polygons]
         if isinstance(polygons, (list, tuple)):
-            # import pdb;pdb.set_trace()
             if len(polygons) == 0:
                 polygons = [[[]]]
-            if isinstance(polygons[0], (list, tuple)): # polygons[0]
-                assert isinstance(polygons[[0][0]], (list, tuple)), str(
-                    type(polygons[[0][0]])
+            if isinstance(polygons[0], (list, tuple)):
+                assert isinstance(polygons[0][0], (list, tuple)), str(
+                    type(polygons[0][0])
                 )
-                print("if part!!!!!!!!!!!")
             else:
-                print("else part$$$$$$$$$4")
-                assert isinstance(polygons[[0][0]], PolygonInstance), str(
-                    type(polygons[[0][0]])
-                ) # added one more dim [0][0] initial was [0]
+                assert isinstance(polygons[0], PolygonInstance), str(
+                    type(polygons[0])
+                )
 
         elif isinstance(polygons, PolygonList):
-            print("else part$***********5")
             size = polygons.size
             polygons = polygons.polygons
 
@@ -412,16 +383,10 @@ class PolygonList(object):
         assert isinstance(size, (list, tuple)), str(type(size))
 
         self.polygons = []
-        print(type(polygons))
         for p in polygons:
-            print("polygons in for loop p is : ++++++++")
-            print(p)
             p = PolygonInstance(p, size)
             if len(p) > 0:
-                print("appending polygons")
                 self.polygons.append(p)
-            print("type of polygons")
-            print(type(polygons))
 
         self.size = tuple(size)
 
@@ -514,10 +479,7 @@ class SegmentationMask(object):
             size: (width, height)
             mode: 'poly', 'mask'. if mode is 'mask', convert mask of any format to binary mask
         """
-        # import pdb; pdb.set_trace()
-        print("printing size $$$$$$$$$$$$$$ " )
-        print(type(size))
-        print(size[0], size[1])
+
         assert isinstance(size, (list, tuple))
         assert len(size) == 2
         if isinstance(size[0], torch.Tensor):
