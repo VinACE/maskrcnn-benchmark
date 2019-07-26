@@ -36,7 +36,7 @@ def to_image_list(tensors, size_divisible=0):
     """
     # import pdb;pdb.set_trace()
     if isinstance(tensors, torch.Tensor) and size_divisible > 0:
-        print(" Iam in instance of tensor") #  TODO remove print
+        print(" Iam in instance of tensor******************$$$$$$$$$") #  TODO remove print
         tensors = [tensors]
 
     if isinstance(tensors, ImageList):
