@@ -227,7 +227,7 @@ class PolygonInstance(object):
                 # torch.multiprocessing.set_start_method("spawn")
                 p = torch.tensor(p, dtype=torch.float32)
                 print("p.shape ################3")
-                print(len(p))
+                # print(len(p))
                 print(p)
                 try:
                     if len(p) >= 6:  # 3 * 2 coordinates
