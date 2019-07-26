@@ -218,12 +218,12 @@ class PolygonInstance(object):
                 The first level refers to all the polygons that compose the
                 object, and the second level to the polygon coordinates.
         """
-        import pdb; pdb.set_trace()
+        # import pdb; pdb.set_trace()
         if isinstance(polygons, (list, tuple)):
             valid_polygons = []
             for p in polygons:
                 print("printing Polygon......")
-                # print(len(p))
+                print(len(p))
                 # torch.multiprocessing.set_start_method("spawn")
                 p = torch.tensor(p, dtype=torch.float32)
                 print("p.shape ################3")
