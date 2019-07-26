@@ -222,13 +222,14 @@ class PolygonInstance(object):
         if isinstance(polygons, (list, tuple)):
             valid_polygons = []
             
-            print(polygons)
-            print("printing Polygon......")
-            # torch.multiprocessing.set_start_method("spawn")
-            p = torch.tensor(polygons, dtype=torch.float32)
-            print("p.shape ################32")
-            print('!!!!!!!!!!')
-            print(p)
+            for p in polygons:
+                print(polygons)
+                print("printing Polygon......")
+                # torch.multiprocessing.set_start_method("spawn")
+                p = torch.tensor(p, dtype=torch.float32)
+                print("p.shape ################32")
+                print('!!!!!!!!!!')
+                print(p)
             
             try:
                 if len(p) >= 6:  # 3 * 2 coordinates
@@ -381,6 +382,7 @@ class PolygonList(object):
             size: absolute image size
 
         """
+        polygons = [polygons]
         if isinstance(polygons, (list, tuple)):
             # import pdb;pdb.set_trace()
             if len(polygons) == 0:
