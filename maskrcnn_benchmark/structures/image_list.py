@@ -47,7 +47,9 @@ def to_image_list(tensors, size_divisible=0):
         image_sizes = [tensor.shape[-2:] for tensor in tensors]
         return ImageList(tensors, image_sizes)
     elif isinstance(tensors, (tuple, list)):
-        max_size = tuple(max(s) for s in zip(*[import pdb;pdb.set_trace();img.shape for img in tensors]))
+        for l in tensors:
+            import pdb;pdb.set_trace()
+        max_size = tuple(max(s) for s in zip(*[img.shape for img in tensors]))
 
         # TODO Ideally, just remove this and let me model handle arbitrary
         # input sizs
