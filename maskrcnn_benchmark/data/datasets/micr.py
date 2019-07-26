@@ -133,6 +133,7 @@ class MICRDataset(torchvision.datasets.coco.CocoDetection):
         # masks = [obj["segmentation"] for obj in anno]
         
         # print(f"printing target {type(target)}")
+        import pdb;pdb.set_trace()
         masks = segcollection
         masks = SegmentationMask(masks, list(img.size), mode='poly')
         target.add_field("masks", masks)
