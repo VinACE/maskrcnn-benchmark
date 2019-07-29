@@ -23,7 +23,7 @@ def save_labels(dataset_list, output_dir):
             if hasattr(dataset, 'categories'):
                 ## TODO  need to check this part as category is not getting identified..
                 # if hasattr(dataset, 'labels'): 
-                print("reached dataset.categories place%%%%%%%%%%%%%")
+                # print("reached dataset.categories place%%%%%%%%%%%%%")
                 ids_to_labels.update(dataset.categories) # dataset.labels
             else:
                 logger.warning("Dataset [{}] has no categories attribute, labels.json file won't be created".format(

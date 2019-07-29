@@ -35,9 +35,7 @@ def to_image_list(tensors, size_divisible=0):
     shape
     """
 
-    # import pdb;pdb.set_trace()
     if isinstance(tensors, torch.Tensor) and size_divisible > 0:
-        # print(" Iam in instance of tensor******************$$$$$$$$$") #  TODO remove print
         tensors = [tensors]
 
     if isinstance(tensors, ImageList):
@@ -50,8 +48,8 @@ def to_image_list(tensors, size_divisible=0):
         image_sizes = [tensor.shape[-2:] for tensor in tensors]
         return ImageList(tensors, image_sizes)
     elif isinstance(tensors, (tuple, list)):
-        print(" Iam in instance of tensor******************$$$$$$$$$") 
-        print(tensors)
+        # print(" Iam in instance of tensor******************$$$$$$$$$") 
+        # print(tensors)
         # max_size = tuple(max(s) for s in zip(*[img.shape for img in tensors]))
         max_size = tuple(max(s) for s in zip(*[img.shape for img in tensors]))
        
@@ -62,7 +60,6 @@ def to_image_list(tensors, size_divisible=0):
 
             stride = size_divisible
             max_size = list(max_size)
-            print(max_size[0], max_size[1], max_size[2], "*" * 15)
             max_size[0] = int(math.ceil(max_size[0] / stride) * stride)
             max_size[1] = int(math.ceil(max_size[1] / stride) * stride)
             max_size = tuple(max_size)
