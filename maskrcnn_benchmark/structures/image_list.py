@@ -53,7 +53,7 @@ def to_image_list(tensors, size_divisible=0):
         print(tensors)
         # max_size = tuple(max(s) for s in zip(*[img.shape for img in tensors]))
         for img in tensors:
-            import pdb,pdb.set_trace()
+            import pdb;pdb.set_trace()
             print(img.size())
         # max_size = tuple(max(s) for s in zip(*[img.size() for img in tensors]))
 
