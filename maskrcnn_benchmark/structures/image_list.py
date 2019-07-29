@@ -61,7 +61,7 @@ def to_image_list(tensors, size_divisible=0):
 
             stride = size_divisible
             max_size = list(max_size)
-             print(len(max_size) , max_size[0], max_size[1], "*" * 15)
+            print(len(max_size) , max_size[0], max_size[1], "*" * 15)
             max_size[0] = int(math.ceil(max_size[1] / stride) * stride)
             max_size[1] = int(math.ceil(max_size[2] / stride) * stride)
             max_size = tuple(max_size)
