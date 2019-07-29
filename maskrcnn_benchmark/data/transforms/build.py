@@ -33,20 +33,20 @@ def build_transforms(cfg, is_train=True):
         hue=hue,
     )
 
-    # transform = T.Compose(
-    #     [
-    #         color_jitter,
-    #         T.Resize(min_size, max_size),
-    #         T.RandomHorizontalFlip(flip_horizontal_prob),
-    #         T.RandomVerticalFlip(flip_vertical_prob),
-    #         T.ToTensor(),
-    #         normalize_transform,
-    #     ]
-    # )
-
     transform = T.Compose(
         [
-            T.ToTensor()
+            color_jitter,
+            T.Resize(min_size, max_size),
+            T.RandomHorizontalFlip(flip_horizontal_prob),
+            T.RandomVerticalFlip(flip_vertical_prob),
+            T.ToTensor(),
+            normalize_transform,
         ]
     )
+
+    # transform = T.Compose(
+    #     [
+    #         T.ToTensor()
+    #     ]
+    # )
     return transform
