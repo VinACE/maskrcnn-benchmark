@@ -53,7 +53,7 @@ def to_image_list(tensors, size_divisible=0):
         print(tensors)
         # max_size = tuple(max(s) for s in zip(*[img.shape for img in tensors]))
         for img in tensors:
-            print(img.size(), "hi" * 10)
+            print(img.size, "hi" * 10)
         # max_size = tuple(max(s) for s in zip(*[img.size() for img in tensors]))
 
         # TODO Ideally, just remove this and let me model handle arbitrary
