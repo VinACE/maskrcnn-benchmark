@@ -3,7 +3,6 @@
 #   lists = [self.imgToAnns[str(imgId)] for imgId in imgIds if str(imgId) in self.imgToAnns] in pycoco tools/coco.py file
 import torch
 import torchvision
-import torchvision.transforms as TF
 from maskrcnn_benchmark.structures.bounding_box import BoxList
 from maskrcnn_benchmark.structures.segmentation_mask import SegmentationMask
 from maskrcnn_benchmark.structures.keypoint import PersonKeypoints
@@ -108,11 +107,6 @@ class MICRDataset(torchvision.datasets.coco.CocoDetection):
         # img, anno = super(MICRDataset, self).__getitem__(idx) # TODO changed from MICRDataset to COCODataset # super(MICRDataset, self)
         img =  Image.open(img_path + str(idx) + '.jpg').convert("RGB")
         boxes, label, segcollection = self.get_img_anno(idx)
-        trans = TF.Compose([
-            TF.ToTensor()
-        ])
-        im = trans(img)
-        print(im.shape)
         print("seg collection list")
         print(boxes)
         print(label)
