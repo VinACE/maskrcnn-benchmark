@@ -38,7 +38,7 @@ def to_image_list(tensors, size_divisible=0):
     a = []
 
     for t in tensors:
-        a.append(t.ToTensor())
+        a.append(transforms.ToTensor()(t))
     # import pdb;pdb.set_trace()
     if isinstance(tensors, torch.Tensor) and size_divisible > 0:
         # print(" Iam in instance of tensor******************$$$$$$$$$") #  TODO remove print
