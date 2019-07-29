@@ -3,7 +3,7 @@
 #   lists = [self.imgToAnns[str(imgId)] for imgId in imgIds if str(imgId) in self.imgToAnns] in pycoco tools/coco.py file
 import torch
 import torchvision
-from . import transforms as TF
+import torchvision.transforms as TF
 from maskrcnn_benchmark.structures.bounding_box import BoxList
 from maskrcnn_benchmark.structures.segmentation_mask import SegmentationMask
 from maskrcnn_benchmark.structures.keypoint import PersonKeypoints
