@@ -61,10 +61,12 @@ def build_roi_heads(cfg, in_channels):
     roi_heads = []
     if cfg.MODEL.RETINANET_ON:
         return []
-
+    import pdb; pdb.set_trace()
     if not cfg.MODEL.RPN_ONLY:
+        import pdb; pdb.set_trace()
         roi_heads.append(("box", build_roi_box_head(cfg, in_channels)))
     if cfg.MODEL.MASK_ON:
+        import pdb; pdb.set_trace()
         roi_heads.append(("mask", build_roi_mask_head(cfg, in_channels)))
     if cfg.MODEL.KEYPOINT_ON:
         roi_heads.append(("keypoint", build_roi_keypoint_head(cfg, in_channels)))
