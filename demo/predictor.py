@@ -197,10 +197,11 @@ class COCODemo(object):
                 the BoxList via `prediction.fields()`
         """
         # import pdb; pdb.set_trace()
-        print(predictions)
+        print(predictions.fields)
         scores = predictions.get_field("scores")
         print(scores)
         confidence_tensor = torch.Tensor(self.confidence_threshold)
+        print(confidence_tensor)
         keep = torch.nonzero(scores > confidence_tensor).squeeze(1)
         predictions = predictions[keep]
         scores = predictions.get_field("scores")
