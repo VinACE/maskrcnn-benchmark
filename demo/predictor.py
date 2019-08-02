@@ -165,7 +165,7 @@ class COCODemo(object):
             predictions = self.model(image_list)
         
         predictions = [o.to(self.cpu_device) for o in predictions]
-        print("prediction is {}".format({predictions} ))
+        print("prediction is {}".format(predictions))
         
         # always single image is passed at a time
         import pdb;pdb.set_trace()
@@ -176,7 +176,7 @@ class COCODemo(object):
         prediction = prediction.resize((width, height))
 
         if prediction.has_field("mask"):
-            
+
             # if we have masks, paste the masks in the right position
             # in the image, as defined by the bounding boxes
             masks = prediction.get_field("mask")
