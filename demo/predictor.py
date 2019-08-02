@@ -207,7 +207,7 @@ class COCODemo(object):
                 of the detection properties can be found in the fields of
                 the BoxList via `prediction.fields()`
         """
-        # import pdb; pdb.set_trace()
+        import pdb; pdb.set_trace()
         print(predictions.fields)
         scores = predictions.get_field("scores")
         print(scores)
