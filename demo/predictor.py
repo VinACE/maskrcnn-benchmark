@@ -198,6 +198,7 @@ class COCODemo(object):
         """
         # import pdb; pdb.set_trace()
         scores = predictions.get_field("scores")
+        print(scores)
         keep = torch.nonzero(scores > self.confidence_threshold).squeeze(1)
         predictions = predictions[keep]
         scores = predictions.get_field("scores")
