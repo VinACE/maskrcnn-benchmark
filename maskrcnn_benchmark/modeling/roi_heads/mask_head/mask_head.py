@@ -58,7 +58,7 @@ class ROIMaskHead(torch.nn.Module):
             losses (dict[Tensor]): During training, returns the losses for the
                 head. During testing, returns an empty dict.
         """
-
+        import pdb;pdb.set_trace()
         if self.training:
             # during training, only focus on positive boxes
             all_proposals = proposals
@@ -69,7 +69,7 @@ class ROIMaskHead(torch.nn.Module):
         else:
             x = self.feature_extractor(features, proposals)
         mask_logits = self.predictor(x)
-        import pdb;pdb.set_trace()
+        
         if not self.training:
             result = self.post_processor(mask_logits, proposals)
             return x, result, {}
