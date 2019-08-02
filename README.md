@@ -278,3 +278,22 @@ https://hellozhaozheng.github.io/z_post/PyTorch-MaskrcnnBenchmark-modeling-backb
 
 # TODO check for the valid image ids..to cross verify 
  micr.py  I have printed it...
+
+Rebakka/ danush .. Did you specify these symlinks
+
+ # symlink the coco dataset
+cd ~/github/maskrcnn-benchmark
+mkdir -p datasets/coco
+ln -s /path_to_coco_dataset/annotations datasets/coco/annotations
+ln -s /path_to_coco_dataset/train2014 datasets/coco/train2014
+ln -s /path_to_coco_dataset/test2014 datasets/coco/test2014
+ln -s /path_to_coco_dataset/val2014 datasets/coco/val2014
+# or use COCO 2017 version
+ln -s /path_to_coco_dataset/annotations datasets/coco/annotations
+ln -s /path_to_coco_dataset/train2017 datasets/coco/train2017
+ln -s /path_to_coco_dataset/test2017 datasets/coco/test2017
+ln -s /path_to_coco_dataset/val2017 datasets/coco/val2017
+
+danush check the shape of image list as its is having 3 dims...
+
+do  git pull first from danush branch...
