@@ -105,15 +105,21 @@ class COCODemo(object):
         )
         min_size = cfg.INPUT.MIN_SIZE_TEST
         max_size = cfg.INPUT.MAX_SIZE_TEST
-        transform = T.Compose(
-            [
-                T.ToPILImage(),
-                Resize(min_size, max_size),
-                T.ToTensor(),
-                to_bgr_transform,
-                normalize_transform,
-            ]
-        )
+        # transform = T.Compose(
+        #     [
+        #         T.ToPILImage(),
+        #         Resize(min_size, max_size),
+        #         T.ToTensor(),
+        #         to_bgr_transform,
+        #         normalize_transform,
+        #     ]
+        # )
+        transform = T.Compose([
+       
+               T.ToTensor(),
+       
+             ]
+            )
         return transform
 
     def run_on_opencv_image(self, image):
@@ -154,8 +160,8 @@ class COCODemo(object):
                 the BoxList via `prediction.fields()`
         """
         # apply pre-processing to image
-        # image = self.transforms(original_image)
-        image = original_image
+        image = self.transforms(original_image)
+        # image = original_image
         # convert to an ImageList, padded so that it is divisible by
         # cfg.DATALOADER.SIZE_DIVISIBILITY
         image_list = to_image_list(image, self.cfg.DATALOADER.SIZE_DIVISIBILITY)
