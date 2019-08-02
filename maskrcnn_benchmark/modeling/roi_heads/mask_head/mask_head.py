@@ -69,7 +69,7 @@ class ROIMaskHead(torch.nn.Module):
         else:
             x = self.feature_extractor(features, proposals)
         mask_logits = self.predictor(x)
-
+        import pdb;pdb.set_trace()
         if not self.training:
             result = self.post_processor(mask_logits, proposals)
             return x, result, {}
