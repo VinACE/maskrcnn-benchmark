@@ -127,6 +127,7 @@ class COCODemo(object):
                 the BoxList via `prediction.fields()`
         """
         predictions = self.compute_prediction(image)
+        import pdb; pdb.set_trace()
         top_predictions = self.select_top_predictions(predictions)
 
         result = image.copy()
@@ -134,6 +135,7 @@ class COCODemo(object):
             return self.create_mask_montage(result, top_predictions)
         result = self.overlay_boxes(result, top_predictions)
         if self.cfg.MODEL.MASK_ON:
+            import pdb; pdb.set_trace()
             result = self.overlay_mask(result, top_predictions)
         if self.cfg.MODEL.KEYPOINT_ON:
             result = self.overlay_keypoints(result, top_predictions)
@@ -161,10 +163,11 @@ class COCODemo(object):
         # compute predictions
         with torch.no_grad():
             predictions = self.model(image_list)
+        
         predictions = [o.to(self.cpu_device) for o in predictions]
 
         
-        print(predictions)
+        print("prediction is {}".format({predictions} ))
         
         # always single image is passed at a time
         # import pdb;pdb.set_trace()
