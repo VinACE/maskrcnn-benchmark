@@ -49,6 +49,7 @@ class ROIBoxHead(torch.nn.Module):
         class_logits, box_regression = self.predictor(x)
 
         if not self.training:
+            import pdb; pdb.set_trace()
             result = self.post_processor((class_logits, box_regression), proposals)
             return x, result, {}
 
