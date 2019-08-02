@@ -200,7 +200,8 @@ class COCODemo(object):
         print(predictions)
         scores = predictions.get_field("scores")
         print(scores)
-        keep = torch.nonzero(scores > self.confidence_threshold).squeeze(1)
+        confidence_tensor = torch.Tensor(self.confidence_threshold)
+        keep = torch.nonzero(scores > confidence_tensor).squeeze(1)
         predictions = predictions[keep]
         scores = predictions.get_field("scores")
         _, idx = scores.sort(0, descending=True)
