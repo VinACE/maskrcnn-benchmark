@@ -161,9 +161,10 @@ class COCODemo(object):
         image_list = image_list.to(self.device)
         print(image_list)
         # compute predictions
+        import pdb; pdb.set_trace()
         with torch.no_grad():
             predictions = self.model(image_list)
-        
+            
         predictions = [o.to(self.cpu_device) for o in predictions]
         print("prediction is {}".format(predictions))
         
