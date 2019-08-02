@@ -51,7 +51,7 @@ def main():
 
     cfg.freeze()
     print(cfg)
- checkpointer.load(cfg.MODEL.WEIGHT)
+ #checkpointer.load(cfg.MODEL.WEIGHT)
     # The following per-class thresholds are computed by maximizing
     # per-class f-measure in their precision-recall curve.
     # Please see compute_thresholds_for_classes() in coco_eval.py for details.
