@@ -33,7 +33,7 @@ def main():
         type=int,
         default=800,
         help="Smallest size of the image to feed to the model. "
-            "Model was trained with 800, which gives best results",
+            "Model was trained with 800, which gives best configs/caffe2/e2e_mask_rcnn_R_50_C4_1x_caffe2.yamlresults",
     )
     parser.add_argument(
         "opts",
@@ -66,8 +66,9 @@ def main():
     #     confidence_thresholds_for_classes=thresholds_for_classes,
     #     min_image_size=args.min_image_size
     # )
-    coco_demo = COCODemo(
-        cfg,
+    # cfg,
+    coco_demo = COCODemo(   
+        
         confidence_thresholds_for_classes=thresholds_for_classes,
         min_image_size=args.min_image_size
     ) 
