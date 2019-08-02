@@ -66,10 +66,9 @@ def main():
     #     confidence_thresholds_for_classes=thresholds_for_classes,
     #     min_image_size=args.min_image_size
     # )
-    # cfg,
     coco_demo = COCODemo(   
-        
-        confidence_thresholds_for_classes=thresholds_for_classes,
+        cfg,
+        confidence_thresholds=thresholds_for_classes,
         min_image_size=args.min_image_size
     ) 
 
