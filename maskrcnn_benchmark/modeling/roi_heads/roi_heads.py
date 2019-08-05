@@ -26,7 +26,7 @@ class CombinedROIHeads(torch.nn.ModuleDict):
         x, detections, loss_box = self.box(features, proposals, targets)
         losses.update(loss_box)
         if self.cfg.MODEL.MASK_ON:
-            import pdb; pdb.set_trace()
+            # import pdb; pdb.set_trace()
             mask_features = features
             # optimization: during training, if we share the feature extractor between
             # the box and the mask heads, then we can reuse the features already computed
@@ -62,12 +62,12 @@ def build_roi_heads(cfg, in_channels):
     roi_heads = []
     if cfg.MODEL.RETINANET_ON:
         return []
-    import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
     if not cfg.MODEL.RPN_ONLY:
-        import pdb; pdb.set_trace()
+        # import pdb; pdb.set_trace()
         roi_heads.append(("box", build_roi_box_head(cfg, in_channels)))
     if cfg.MODEL.MASK_ON:
-        import pdb; pdb.set_trace()
+        # import pdb; pdb.set_trace()
         roi_heads.append(("mask", build_roi_mask_head(cfg, in_channels)))
     if cfg.MODEL.KEYPOINT_ON:
         roi_heads.append(("keypoint", build_roi_keypoint_head(cfg, in_channels)))
