@@ -58,7 +58,7 @@ class ROIMaskHead(torch.nn.Module):
             losses (dict[Tensor]): During training, returns the losses for the
                 head. During testing, returns an empty dict.
         """
-        import pdb;pdb.set_trace()
+        # import pdb;pdb.set_trace()
         if self.training:
             # during training, only focus on positive boxes
             all_proposals = proposals
