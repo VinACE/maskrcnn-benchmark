@@ -105,21 +105,21 @@ class COCODemo(object):
         )
         min_size = cfg.INPUT.MIN_SIZE_TEST
         max_size = cfg.INPUT.MAX_SIZE_TEST
-        # transform = T.Compose(
-        #     [
-        #         T.ToPILImage(),
-        #         Resize(min_size, max_size),
-        #         T.ToTensor(),
-        #         to_bgr_transform,
-        #         normalize_transform,
-        #     ]
-        # )
-        transform = T.Compose([
+        transform = T.Compose(
+            [
+                T.ToPILImage(),
+                Resize(min_size, max_size),
+                T.ToTensor(),
+                to_bgr_transform,
+                normalize_transform,
+            ]
+        )
+        # transform = T.Compose([
        
-               T.ToTensor(),
+        #        T.ToTensor(),
        
-             ]
-            )
+        #      ]
+        #     )
         return transform
 
     def run_on_opencv_image(self, image):
